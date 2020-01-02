@@ -1,29 +1,30 @@
 ﻿//with useing we are save time from having to type the namespace all the time
 using System;
 using System.Threading;
+using Microsoft.Win32;
 
-
-    class MainClass
+class MainClass
     {
 
-    static void Wait()
+    static void Wait(int waitTime)
     {
         Console.WriteLine("Welcome to the cat food store");
-        Thread.Sleep(3000);
-        Console.WriteLine("What can i do for you?");
+        Thread.Sleep(waitTime);
     }
 
-    static void CountToThree()
+    static string Ask(String question)
     {
-        Console.WriteLine(1);
-        Console.WriteLine(2);
-        Console.WriteLine(3);
+        Console.WriteLine(question);
+        return Console.ReadLine();
+        
     }
 
         public static void Main(string[] args)
         {
-        Wait();
-        CountToThree();
+        Wait(3000);
+        string entry = Ask("How many cans are you ordering?");
+        //String interpolation, using the $ at the beginning of a string and calling the variable inside of curly braces
+        Console.WriteLine($"You entered { entry } cans");
         }
      }
 
